@@ -11,7 +11,7 @@ class SideNavPage(Page):
 
     def open_settings(self):
         elements = self.find_elements(*SideNavPage.OPEN_SETTINGS)
-        elements[1].click()
+        elements[2].click()
         # self.wait_until_clickable_click(*self.OPEN_SETTINGS)
 
     def scroll_to_element(self, locator):
