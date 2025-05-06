@@ -9,31 +9,31 @@ def browser_init(context):
     """
     :param context: Behave context
     """
-    # driver_path = ChromeDriverManager().install()
-    # service = Service(driver_path)
-    # context.driver = webdriver.Chrome(service=service)
+    driver_path = ChromeDriverManager().install()
+    service = Service(driver_path)
+    context.driver = webdriver.Chrome(service=service)
 
-    bs_user = 'derekwest_yxqozL'
-    bs_key = 'VqiVvX6PiPPQD4rnfnyN'
-    url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
-
-    options = ChromeOptions()
-
-    bstack_options = {
-        "os": "Windows",
-        "osVersion": "10",
-        "browserName": "Chrome",
-        "browserVersion": "latest",
-        "sessionName": "Behave Test",  # Optional: scenario.name
-        "buildName": "Build 1"
-    }
-
-    options.set_capability('bstack:options', bstack_options)
-
-    context.driver = webdriver.Remote(
-        command_executor=url,
-        options=options
-    )
+    # bs_user = 'derekwest_yxqozL'
+    # bs_key = 'VqiVvX6PiPPQD4rnfnyN'
+    # url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
+    #
+    # options = ChromeOptions()
+    #
+    # bstack_options = {
+    #     "os": "Windows",
+    #     "osVersion": "10",
+    #     "browserName": "Chrome",
+    #     "browserVersion": "latest",
+    #     "sessionName": "Behave Test",  # Optional: scenario.name
+    #     "buildName": "Build 1"
+    # }
+    #
+    # options.set_capability('bstack:options', bstack_options)
+    #
+    # context.driver = webdriver.Remote(
+    #     command_executor=url,
+    #     options=options
+    # )
 
     context.driver.maximize_window()
     context.driver.implicitly_wait(4)
