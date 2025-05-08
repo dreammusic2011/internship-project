@@ -5,6 +5,8 @@ class SettingsPage(Page):
 
     SETTINGS_OPTIONS = (By.CSS_SELECTOR, "[class*='page-setting-block']")
     CONNECT_COMPANY = (By.CSS_SELECTOR, "[class='get-free-period menu']")
+    MOBILE_COMPANY = (By.XPATH, '//*[@class="button-link-menu w-inline-block"]')
+
 
 
     def verify_options_present(self, expected_count):
@@ -13,7 +15,8 @@ class SettingsPage(Page):
         assert len(links) == int(expected_count), f"Expected {expected_count} links, got {len(links)}"
 
 
+
     def verify_connect_company_btn(self):
-        self.wait_until_visible(*self.CONNECT_COMPANY)
-        elements = self.find_elements(*self.CONNECT_COMPANY)
+        # self.wait_until_visible(*self.MOBILE_COMPANY)
+        elements = self.find_elements(*self.MOBILE_COMPANY)
         assert elements, "Connect Company button not found"
